@@ -1,0 +1,6 @@
+BasedOnStyle: LLVM
+AlignAfterOpenBracket: false
+BreakFunctionDefinitionParameters: false
+ContinuationIndentWidth: 2
+IncludeBlocks: Regroup
+IndentWidth: 2
