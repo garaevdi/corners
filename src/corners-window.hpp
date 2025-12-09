@@ -6,8 +6,9 @@
 using namespace peel;
 
 namespace Corners {
-class Window final : public Gtk::ApplicationWindow {
-  PEEL_SIMPLE_CLASS(Window, Gtk::ApplicationWindow);
+class Window final : public Gtk::Window {
+  PEEL_SIMPLE_CLASS(Window, Gtk::Window);
+  friend class Gtk::Window;
 
   inline void init(Class *);
 

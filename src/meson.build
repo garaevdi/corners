@@ -8,7 +8,8 @@ config_h = configure_file(
 
 deps = [
     dependency('peel'),
-    dependency('gtk4')
+    dependency('gtk4'),
+    dependency('gtk4-layer-shell-0')
 ]
 
 peel_gen = find_program('peel-gen', required: true)
@@ -18,7 +19,8 @@ peel_h = custom_target(
         peel_gen,
         '--recursive',
         '--out-dir', '@OUTDIR@',
-        'Gtk', '4.0'
+        'Gtk', '4.0',
+        'Gtk4LayerShell', '1.0'
     ],
     output: 'peel'
 )

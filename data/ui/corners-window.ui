@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="CornersWindow" parent="GtkApplicationWindow">
+  <template class="CornersWindow" parent="GtkWindow">
     <property name="child">
       <object class="GtkLabel">
         <property name="label">Hello from peel!</property>
