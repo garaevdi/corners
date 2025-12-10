@@ -15,7 +15,13 @@ class Application final : public Gtk::Application
   PEEL_SIMPLE_CLASS (Application, Gtk::Application);
   friend class Gio::Application;
 
+  RefPtr<Gio::ListModel> monitors;
+
   inline void vfunc_activate ();
+
+  void update_corners (Gio::ListModel *, unsigned, unsigned, unsigned);
+
+  void create_windows ();
 
 public:
   static RefPtr<Application>
