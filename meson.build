@@ -14,11 +14,9 @@ datadir = prefix / get_option('datadir')
 pkgdatadir = datadir / meson.project_name()
 schemadir = datadir / 'glib-2.0' / 'schemas'
 
-i18n = import('i18n')
 gnome = import('gnome')
 
 subdir('data')
-subdir('po')
 subdir('src')
 
 gnome.post_install(
