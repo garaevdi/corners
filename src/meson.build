@@ -32,7 +32,9 @@ sources = [
     'corners-application.cpp',
     'corners-application.hpp',
     'corners-window.cpp',
-    'corners-window.hpp'
+    'corners-window.hpp',
+    'corners-corner.cpp',
+    'corners-corner.hpp'
 ]
 
 executable(

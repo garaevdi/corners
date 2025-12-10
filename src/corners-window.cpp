@@ -1,10 +1,12 @@
 #include "corners-window.hpp"
 
 #include "config.h"
+#include "corners-corner.hpp"
 
 #include <cairo.h>
 #include <peel/Gdk/Surface.h>
 #include <peel/Gtk4LayerShell/Gtk4LayerShell.h>
+#include <peel/widget-template.h>
 
 namespace Corners
 {
@@ -15,6 +17,10 @@ Window::Class::init ()
 {
   override_vfunc_dispose<Window> ();
   set_template_from_resource (APP_PATH "/ui/corners-window.ui");
+  PEEL_WIDGET_TEMPLATE_BIND_CHILD (Window, top_left);
+  PEEL_WIDGET_TEMPLATE_BIND_CHILD (Window, top_right);
+  PEEL_WIDGET_TEMPLATE_BIND_CHILD (Window, bottom_left);
+  PEEL_WIDGET_TEMPLATE_BIND_CHILD (Window, bottom_right);
 }
 
 inline void
@@ -33,6 +39,14 @@ Window::init (Class *)
     auto rect = cairo_rectangle_int_t{ 0, 0, 0, 0 };
     surface->set_input_region (cairo_region_create_rectangle (&rect));
   });
+  auto top_left_corner = Corner::create (Position::TOP_LEFT);
+  top_left->set_paintable (top_left_corner->cast<Gdk::Paintable> ());
+  auto top_right_corner = Corner::create (Position::TOP_RIGHT);
+  top_right->set_paintable (top_right_corner->cast<Gdk::Paintable> ());
+  auto bottom_right_corner = Corner::create (Position::BOTTOM_RIGHT);
+  bottom_right->set_paintable (bottom_right_corner->cast<Gdk::Paintable> ());
+  auto bottom_left_corner = Corner::create (Position::BOTTOM_LEFT);
+  bottom_left->set_paintable (bottom_left_corner->cast<Gdk::Paintable> ());
 }
 
 inline void
