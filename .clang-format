@@ -1,6 +1,13 @@
-BasedOnStyle: LLVM
+BasedOnStyle: GNU
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseExpressionOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortCompoundRequirementOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
 AlignAfterOpenBracket: false
 BreakFunctionDefinitionParameters: false
 ContinuationIndentWidth: 2
+FixNamespaceComments: true
 IncludeBlocks: Regroup
 IndentWidth: 2
