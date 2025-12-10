@@ -28,6 +28,7 @@ Window::init (Class *)
 {
   init_template ();
   Gtk4LayerShell::init_for_window (this);
+  Gtk4LayerShell::set_monitor(this, monitor);
   Gtk4LayerShell::set_anchor (this, Gtk4LayerShell::Edge::TOP, true);
   Gtk4LayerShell::set_anchor (this, Gtk4LayerShell::Edge::LEFT, true);
   Gtk4LayerShell::set_anchor (this, Gtk4LayerShell::Edge::RIGHT, true);
@@ -47,6 +48,17 @@ Window::init (Class *)
   bottom_right->set_paintable (bottom_right_corner->cast<Gdk::Paintable> ());
   auto bottom_left_corner = Corner::create (Position::BOTTOM_LEFT);
   bottom_left->set_paintable (bottom_left_corner->cast<Gdk::Paintable> ());
+}
+
+void
+Window::set_monitor (Gdk::Monitor *new_monitor)
+{
+  if (monitor == new_monitor)
+    return;
+
+  monitor = new_monitor;
+  notify (prop_monitor ());
+  Gtk4LayerShell::set_monitor (this, monitor);
 }
 
 inline void

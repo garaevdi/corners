@@ -41,9 +41,8 @@ Application::create_windows ()
   for (unsigned i = 0; i < monitors->get_n_items (); i++)
     {
       auto monitor = monitors->get_item (i);
-      auto window = Window::create (this);
+      auto window = Window::create (this, (Gdk::Monitor *)monitor);
       window->present ();
-      Gtk4LayerShell::set_monitor (window, (Gdk::Monitor *)monitor);
     }
 }
 } // namespace Corners
