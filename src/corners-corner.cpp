@@ -1,5 +1,10 @@
 #include "corners-corner.hpp"
 
+#include "config.h"
+#include "peel/Gdk/Paintable.h"
+
+#define SETTINGS_KEY "corner-radius"
+
 PEEL_ENUM_IMPL (Corners::Position, "CornersPosition",
   PEEL_ENUM_VALUE (Corners::Position::TOP_LEFT, "top_left"),
   PEEL_ENUM_VALUE (Corners::Position::TOP_RIGHT, "top_right"),
@@ -18,7 +23,19 @@ Corner::Class::init ()
 void
 Corner::init (Class *)
 {
-  radius = 15;
+  auto sss = Gio::SettingsSchemaSource::get_default ();
+  auto schema = sss->lookup (APP_ID, true);
+  if (schema)
+    {
+      settings = Gio::Settings::create (APP_ID);
+      settings->bind (
+        SETTINGS_KEY, this, "radius", Gio::Settings::BindFlags::DEFAULT);
+    }
+  else
+    {
+      g_warning ("Coludn't find settings schema");
+      radius = 16;
+    }
 }
 
 void
@@ -26,6 +43,17 @@ Corner::set_position (Position new_pos)
 {
   position = new_pos;
   notify (prop_position ());
+}
+
+void
+Corner::set_radius (unsigned new_radius)
+{
+  if (radius == new_radius)
+    return;
+  
+  radius = new_radius;
+  notify(prop_radius());
+  this->cast<Gdk::Paintable>()->invalidate_size();
 }
 
 void

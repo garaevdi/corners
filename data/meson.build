@@ -1,7 +1,7 @@
 glib_compile_schemas = find_program('glib-compile-schemas', required: true)
 gschema_conf = configuration_data()
 gschema_conf.set('APP_ID', app_id)
-gschema_conf.set('APP_PATH', app_path)
+gschema_conf.set('APP_PATH', app_path + '/')
 gschema_conf.set('GETTEXT', gettext)
 configure_file(
     input: 'corners.gschema.xml.in',

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="@GETTEXT@">
+  <schema id="@APP_ID@" path="@APP_PATH@">
+    <key name="corner-radius" type="u">
+      <range min="1" max="128"/>
+      <default>16</default>
+      <summary>Radius of a rounded corners</summary>
+    </key>
+  </schema>
+</schemalist>

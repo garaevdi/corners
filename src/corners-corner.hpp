@@ -3,6 +3,7 @@
 #include <peel/Gdk/Gdk.h>
 #include <peel/Gsk/Gsk.h>
 #include <peel/Gtk/Gtk.h>
+#include <peel/Gio/Gio.h>
 #include <peel/class.h>
 #include <peel/enum.h>
 
@@ -45,12 +46,16 @@ class Corner final : public peel::GObject::Object
   }
   unsigned radius;
   Position position;
+  
+  RefPtr<Gio::Settings> settings;
 
   template <typename F>
   static void
   define_properties (F &f)
   {
-    f.prop (prop_radius (), 0, G_MAXUINT, 128).get (&Corner::get_radius);
+    f.prop (prop_radius (), 1, 128, 16)
+      .get (&Corner::get_radius)
+      .set (&Corner::set_radius);
     f.prop (prop_position (), Position::TOP_LEFT)
       .get (&Corner::get_position)
       .set (&Corner::set_position);
@@ -59,6 +64,8 @@ class Corner final : public peel::GObject::Object
   void init (Class *);
 
   void set_position (Position new_pos);
+  
+  void set_radius (unsigned new_radius);
 
 public:
   int
