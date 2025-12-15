@@ -17,11 +17,14 @@ class Application final : public Gtk::Application
 
   RefPtr<Gio::ListModel> monitors;
 
-  inline void vfunc_activate ();
+  inline void
+  vfunc_activate ();
 
-  void update_corners (Gio::ListModel *, unsigned, unsigned, unsigned);
+  void
+  update_corners (Gio::ListModel *, unsigned, unsigned, unsigned);
 
-  void create_windows ();
+  void
+  create_windows ();
 
 public:
   static RefPtr<Application>

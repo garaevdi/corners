@@ -28,11 +28,14 @@ class Window final : public Gtk::Window
   Gtk::Picture *bottom_left;
   Gtk::Picture *bottom_right;
 
-  inline void init (Class *);
+  inline void
+  init (Class *);
 
-  inline void vfunc_dispose ();
+  inline void
+  vfunc_dispose ();
 
-  void set_monitor (Gdk::Monitor *new_monitor);
+  void
+  set_monitor (Gdk::Monitor *new_monitor);
 
 public:
   Gdk::Monitor *

@@ -28,7 +28,7 @@ Window::init (Class *)
 {
   init_template ();
   Gtk4LayerShell::init_for_window (this);
-  Gtk4LayerShell::set_monitor(this, monitor);
+  Gtk4LayerShell::set_monitor (this, monitor);
   Gtk4LayerShell::set_anchor (this, Gtk4LayerShell::Edge::TOP, true);
   Gtk4LayerShell::set_anchor (this, Gtk4LayerShell::Edge::LEFT, true);
   Gtk4LayerShell::set_anchor (this, Gtk4LayerShell::Edge::RIGHT, true);

@@ -4,8 +4,9 @@ AllowShortCaseExpressionOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortCompoundRequirementOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: None
 AlignAfterOpenBracket: false
+BreakAfterReturnType: All
 BreakFunctionDefinitionParameters: false
 ContinuationIndentWidth: 2
 FixNamespaceComments: true

@@ -50,10 +50,10 @@ Corner::set_radius (unsigned new_radius)
 {
   if (radius == new_radius)
     return;
-  
+
   radius = new_radius;
-  notify(prop_radius());
-  this->cast<Gdk::Paintable>()->invalidate_size();
+  notify (prop_radius ());
+  this->cast<Gdk::Paintable> ()->invalidate_size ();
 }
 
 void

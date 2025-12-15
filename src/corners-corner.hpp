@@ -1,9 +1,9 @@
 #pragma once
 
 #include <peel/Gdk/Gdk.h>
+#include <peel/Gio/Gio.h>
 #include <peel/Gsk/Gsk.h>
 #include <peel/Gtk/Gtk.h>
-#include <peel/Gio/Gio.h>
 #include <peel/class.h>
 #include <peel/enum.h>
 
@@ -46,7 +46,7 @@ class Corner final : public peel::GObject::Object
   }
   unsigned radius;
   Position position;
-  
+
   RefPtr<Gio::Settings> settings;
 
   template <typename F>
@@ -61,11 +61,14 @@ class Corner final : public peel::GObject::Object
       .set (&Corner::set_position);
   }
 
-  void init (Class *);
+  void
+  init (Class *);
 
-  void set_position (Position new_pos);
-  
-  void set_radius (unsigned new_radius);
+  void
+  set_position (Position new_pos);
+
+  void
+  set_radius (unsigned new_radius);
 
 public:
   int
@@ -80,7 +83,8 @@ public:
     return (int)radius;
   };
 
-  void vfunc_snapshot (Gdk::Snapshot *snapshot, double width, double height);
+  void
+  vfunc_snapshot (Gdk::Snapshot *snapshot, double width, double height);
 
   unsigned
   get_radius ()
